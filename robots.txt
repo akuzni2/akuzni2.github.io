@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://akuzni2.github.io/codersteez.github.io/sitemap.xml
+Sitemap: https://akuzni2.github.io/sitemap.xml
