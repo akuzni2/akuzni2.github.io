@@ -21,6 +21,16 @@ Exercise: Loops and Functions package main import ( &amp;#34;fmt&amp;#34; &amp;#
     </item>
     
     <item>
+      <title>A Tour of Go Exercise Solutions</title>
+      <link>https://akuzni2.github.io/posts/tour-of-go/</link>
+      <pubDate>Fri, 25 Jun 2021 11:30:03 +0000</pubDate>
+      
+      <guid>https://akuzni2.github.io/posts/tour-of-go/</guid>
+      <description>As I am going through the Tour of Go I found there are some exercise that require some problem solving. I&amp;rsquo;d like to share my solutions that I&amp;rsquo;ve come up with for these. I&amp;rsquo;ll be updating these as I complete the tour of go!
+Exercise: Loops and Functions package main import ( &amp;#34;fmt&amp;#34; &amp;#34;math&amp;#34; ) func Sqrt(x float64) float64 { z := 1.0 prevZ := z diff := 0.00000001 for { z -= (z*z - x) / (2*z) if diff &amp;gt; math.</description>
+    </item>
+    
+    <item>
       <title>A Tour of Go Exercise Solutions 2</title>
       <link>https://akuzni2.github.io/tour-of-go/post/</link>
       <pubDate>Fri, 25 Jun 2021 11:30:03 +0000</pubDate>
