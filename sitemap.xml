@@ -2,20 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://akuzni2.github.io/go-exercises/post/</loc>
+    <lastmod>2021-06-25T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://akuzni2.github.io/tour-of-go/post/</loc>
+    <lastmod>2021-06-25T11:30:03+00:00</lastmod>
+  </url><url>
     <loc>https://akuzni2.github.io/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <lastmod>2021-06-25T11:30:03+00:00</lastmod>
   </url><url>
-    <loc>https://akuzni2.github.io/tags/first/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <loc>https://akuzni2.github.io/tags/go/</loc>
+    <lastmod>2021-06-25T11:30:03+00:00</lastmod>
   </url><url>
-    <loc>https://akuzni2.github.io/first-test/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <loc>https://akuzni2.github.io/go-exercises/</loc>
+    <lastmod>2021-06-25T11:30:03+00:00</lastmod>
   </url><url>
-    <loc>https://akuzni2.github.io/first-test/post/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <loc>https://akuzni2.github.io/tags/golang/</loc>
+    <lastmod>2021-06-25T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://akuzni2.github.io/tags/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <lastmod>2021-06-25T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://akuzni2.github.io/tour-of-go/</loc>
+    <lastmod>2021-06-25T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://akuzni2.github.io/categories/</loc>
   </url>
