@@ -42,10 +42,10 @@ Exercise: Loops and Functions package main import ( &amp;#34;fmt&amp;#34; &amp;#
     
     <item>
       <title>Beating Java AWS Lambda Cold Starts With GraalVM Native Image and Quarkus</title>
-      <link>https://akuzni2.github.io/posts/java/beating-java-aws-lambda-cold-starts-with-graalvm-native-image-and-quarkus/</link>
+      <link>https://akuzni2.github.io/posts/java/java-graalvm-aws-lambda-coldstart/</link>
       <pubDate>Mon, 17 Jan 2022 12:24:27 -0600</pubDate>
       
-      <guid>https://akuzni2.github.io/posts/java/beating-java-aws-lambda-cold-starts-with-graalvm-native-image-and-quarkus/</guid>
+      <guid>https://akuzni2.github.io/posts/java/java-graalvm-aws-lambda-coldstart/</guid>
       <description>What we&amp;rsquo;ll be doing: In this article I&amp;rsquo;ll show you how to build a GraalVM native-image to be deployed on AWS Lambda to massively decrease your cold start times.
 What&amp;rsquo;s the result? Java AWS Lambda Function with near 200 milliseconds cold start.
 Some of the instructions for this article came from following instructions from Quarkus here - however this article explains some of the steps I needed to take to get working and hope it helps you too.</description>
