@@ -51,14 +51,5 @@ What&amp;rsquo;s the result? Java AWS Lambda Function with near 200 milliseconds
 Some of the instructions for this article came from following instructions from Quarkus here - however this article explains some of the steps I needed to take to get working and hope it helps you too.</description>
     </item>
     
-    <item>
-      <title>Another Hello</title>
-      <link>https://akuzni2.github.io/posts/another-hello/</link>
-      <pubDate>Mon, 17 Jan 2022 12:10:34 -0600</pubDate>
-      
-      <guid>https://akuzni2.github.io/posts/another-hello/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
