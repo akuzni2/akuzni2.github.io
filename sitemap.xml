@@ -26,8 +26,23 @@
     <loc>https://akuzni2.github.io/tags/</loc>
     <lastmod>2021-06-25T11:30:03+00:00</lastmod>
   </url><url>
+    <loc>https://akuzni2.github.io/tags/aws-lambda/</loc>
+    <lastmod>2021-05-21T12:24:27-06:00</lastmod>
+  </url><url>
     <loc>https://akuzni2.github.io/posts/java/java-graalvm-aws-lambda-coldstart/</loc>
     <lastmod>2021-05-21T12:24:27-06:00</lastmod>
+  </url><url>
+    <loc>https://akuzni2.github.io/tags/graalvm/</loc>
+    <lastmod>2021-05-21T12:24:27-06:00</lastmod>
+  </url><url>
+    <loc>https://akuzni2.github.io/tags/java/</loc>
+    <lastmod>2021-05-21T12:24:27-06:00</lastmod>
+  </url><url>
+    <loc>https://akuzni2.github.io/tags/cicd/</loc>
+    <lastmod>2021-01-03T13:17:12-06:00</lastmod>
+  </url><url>
+    <loc>https://akuzni2.github.io/tags/circleci/</loc>
+    <lastmod>2021-01-03T13:17:12-06:00</lastmod>
   </url><url>
     <loc>https://akuzni2.github.io/posts/circleci-monorepo/</loc>
     <lastmod>2021-01-03T13:17:12-06:00</lastmod>

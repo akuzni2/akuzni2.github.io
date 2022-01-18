@@ -24,5 +24,50 @@
       <description></description>
     </item>
     
+    <item>
+      <title>AWS Lambda</title>
+      <link>https://akuzni2.github.io/tags/aws-lambda/</link>
+      <pubDate>Fri, 21 May 2021 12:24:27 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/tags/aws-lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graalvm</title>
+      <link>https://akuzni2.github.io/tags/graalvm/</link>
+      <pubDate>Fri, 21 May 2021 12:24:27 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/tags/graalvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://akuzni2.github.io/tags/java/</link>
+      <pubDate>Fri, 21 May 2021 12:24:27 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CICD</title>
+      <link>https://akuzni2.github.io/tags/cicd/</link>
+      <pubDate>Sun, 03 Jan 2021 13:17:12 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/tags/cicd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>circleci</title>
+      <link>https://akuzni2.github.io/tags/circleci/</link>
+      <pubDate>Sun, 03 Jan 2021 13:17:12 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/tags/circleci/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

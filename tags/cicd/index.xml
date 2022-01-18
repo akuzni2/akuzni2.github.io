@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CICD on Codersteez</title>
+    <link>https://akuzni2.github.io/tags/cicd/</link>
+    <description>Recent content in CICD on Codersteez</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 03 Jan 2021 13:17:12 -0600</lastBuildDate><atom:link href="https://akuzni2.github.io/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Circleci Monorepo</title>
+      <link>https://akuzni2.github.io/posts/circleci-monorepo/</link>
+      <pubDate>Sun, 03 Jan 2021 13:17:12 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/posts/circleci-monorepo/</guid>
+      <description>Monorepo: A shared codebase that stores multiple projects in a single repository.
+tldr: Final script is at the bottom of the post if you&amp;rsquo;d like to skip the walkthrough.
+At least the above definition is what I think of a monorepo. I see a monorepo as a single repository that has subprojects that generates separate artifacts under each project. Each of these projects can be related or totally unrelated.
+Some people frown upon the monorepo concept, however there is some empirical evidence to its usefulness by those who&amp;rsquo;ve adopted them (most notably Google).</description>
+    </item>
+    
+  </channel>
+</rss>
