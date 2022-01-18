@@ -5,7 +5,18 @@
     <link>https://akuzni2.github.io/posts/</link>
     <description>Recent content in Posts on Codersteez</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 21 May 2021 12:24:27 -0600</lastBuildDate><atom:link href="https://akuzni2.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Jan 2022 19:21:20 -0600</lastBuildDate><atom:link href="https://akuzni2.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Benchmarking Code Review SLAs</title>
+      <link>https://akuzni2.github.io/posts/general/code-review-benchmark/post/</link>
+      <pubDate>Sat, 15 Jan 2022 19:21:20 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/posts/general/code-review-benchmark/post/</guid>
+      <description>Have you ever wondered if your teams code reviews are in line with industry standards? Do you sometimes not know if you&amp;rsquo;re going at a good pace or behind? Having a solid reference to benchmark against can be helpful so I&amp;rsquo;ve gone ahead and done some research and summarized key findings here that I thought might be useful to reference and ponder on.
+Review Frequency and Speed Google
+ Median 4 MRs per week [1] 80 % reviewers review &amp;lt; 10 MR’s per week [1]  Time to get initial Initial feedback on an MR/PR: Google</description>
+    </item>
+    
     <item>
       <title>Beating Java AWS Lambda Cold Starts With GraalVM Native Image and Quarkus</title>
       <link>https://akuzni2.github.io/posts/java/java-graalvm-aws-lambda-coldstart/</link>
