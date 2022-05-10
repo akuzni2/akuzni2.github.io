@@ -56,88 +56,23 @@
 </nav>
 </header>
 <main class=main>
-<article class="first-entry home-info">
-<header class=entry-header>
-<h1>Hello! 👋</h1>
-</header>
-<section class=entry-content>
-<p>I&rsquo;m Alex. Welcome to my blog. I write mainly about software engineering but also other cool things.</p>
-</section>
-<footer class=entry-footer>
-<div class=social-icons>
-<a href=https://github.com/akuzni2 target=_blank rel="noopener noreferrer me" title=Github><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
-</a>
-</div>
-</footer>
-</article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Gitlab Reusable Pipeline
+<h2>Circleci Monorepo
 </h2>
 </header>
 <section class=entry-content>
-<p>creating a reusable pipeline can be very beneficial to reduce duplicate code and also to standardize across other pipelines in the same project or across other projects. For
-let’s start by defining the reusable pipeline
-Create a new pipeline pipeline.yml
-variables: VAR1: "" VAR2: "" VAR3: "" stages: - stage1 - stage2 - stage3 job_1: stage: stage1 image: name: some-image variables: SOME_VARIABLE_1: "$VAR1" script: - echo 'Do something with $SOME_VARIABLE_1 like validate/lint ' job_2: stage: stage2 image: name: some-image variables: SOME_VARIABLE_2: "$VAR2" script: - echo 'Do something with $SOME_VARIABLE_2 like build/test' job_3: stage: stage3 image: name: some-image variables: SOME_VARIABLE_3: "$VAR3" script: - echo 'Do something with $SOME_VARIABLE_3 like deploy to specfic environment based on the input variable' Use The pipeline ....</p>
+<p>Monorepo: A shared codebase that stores multiple projects in a single repository.
+tldr: Final script is at the bottom of the post if you’d like to skip the walkthrough.
+At least the above definition is what I think of a monorepo. I see a monorepo as a single repository that has subprojects that generates separate artifacts under each project. Each of these projects can be related or totally unrelated.
+Some people frown upon the monorepo concept, however there is some empirical evidence to its usefulness by those who’ve adopted them (most notably Google)....</p>
 </section>
-<footer class=entry-footer><span title="2022-05-10 11:42:55 -0500 CDT">May 10, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Alex</footer>
-<a class=entry-link aria-label="post link to Gitlab Reusable Pipeline" href=https://akuzni2.github.io/posts/devops/gitlab-reusable-pipeline/post/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Benchmarking Code Review SLAs
-</h2>
-</header>
-<section class=entry-content>
-<p>Have you ever wondered if your teams code reviews are in line with industry standards? Do you sometimes not know if you’re going at a good pace or behind? Having a solid reference to benchmark against can be helpful so I’ve gone ahead and done some research and summarized key findings here that I thought might be useful to reference and ponder on.
-Review Frequency and Speed Google
-Median 4 MRs per week [1] 80 % reviewers review &lt; 10 MR’s per week [1] Time to get initial Initial feedback on an MR/PR: Google...</p>
-</section>
-<footer class=entry-footer><span title="2022-01-15 19:21:20 -0600 CST">January 15, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Alex</footer>
-<a class=entry-link aria-label="post link to Benchmarking Code Review SLAs" href=https://akuzni2.github.io/posts/general/code-review-benchmark/post/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Beating Java AWS Lambda Cold Starts With GraalVM Native Image and Quarkus
-</h2>
-</header>
-<section class=entry-content>
-<p>What we’ll be doing: In this article I’ll show you how to build a GraalVM native-image to be deployed on AWS Lambda to massively decrease your cold start times.
-What’s the result? Java AWS Lambda Function with near 200 milliseconds cold start.
-Some of the instructions for this article came from following instructions from Quarkus here - however this article explains the steps I needed to take to get working and hope it helps you too....</p>
-</section>
-<footer class=entry-footer><span title="2021-05-21 12:24:27 -0600 -0600">May 21, 2021</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Alex</footer>
-<a class=entry-link aria-label="post link to Beating Java AWS Lambda Cold Starts With GraalVM Native Image and Quarkus" href=https://akuzni2.github.io/posts/java/java-graalvm-aws-lambda-coldstart/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>A Tour of Go Exercise Solutions
-</h2>
-</header>
-<section class=entry-content>
-<p>As I am going through the Tour of Go I found there are some exercise that require some problem solving. I’d like to share my solutions that I’ve come up with for these. I’ll be updating these as I complete the tour of go!
-Exercise: Loops and Functions package main import ( "fmt" "math" ) func Sqrt(x float64) float64 { z := 1.0 prevZ := z diff := 0.00000001 for { z -= (z*z - x) / (2*z) if diff > math....</p>
-</section>
-<footer class=entry-footer><span title="2021-04-25 11:30:03 +0000 +0000">April 25, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Alex</footer>
-<a class=entry-link aria-label="post link to A Tour of Go Exercise Solutions" href=https://akuzni2.github.io/posts/tour-of-go/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Removing Mill Scale and Seasoning A36 Steel for Pizza/Baking
-</h2>
-</header>
-<section class=entry-content>
-<p>Before I get into the details and my cleaning process - here is a before and after picture of the steel! Looks good right?! Let me explain what I know.
-The “after” picture was taken on the final cleaning step as I was drying the steel. This doesn’t yet have any seasoning. Immediately after I did a coat of seasoning. (seasoned pictures of steel at bottom of article)
-Pizza steels! Superior to stones....</p>
-</section>
-<footer class=entry-footer><span title="2021-02-06 19:00:05 -0600 CST">February 6, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Alex</footer>
-<a class=entry-link aria-label="post link to Removing Mill Scale and Seasoning A36 Steel for Pizza/Baking" href=https://akuzni2.github.io/posts/food/pizza-steel/post/></a>
+<footer class=entry-footer><span title="2021-01-03 13:17:12 -0600 CST">January 3, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Alex</footer>
+<a class=entry-link aria-label="post link to Circleci Monorepo" href=https://akuzni2.github.io/posts/circleci-monorepo/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
-<a class=next href=https://akuzni2.github.io/page/2/>Next Page »</a>
+<a class=prev href=https://akuzni2.github.io/>« Prev Page</a>
 </nav>
 </footer>
 </main>

@@ -5,7 +5,19 @@
     <link>https://akuzni2.github.io/posts/</link>
     <description>Recent content in Posts on Codersteez</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 15 Jan 2022 19:21:20 -0600</lastBuildDate><atom:link href="https://akuzni2.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 May 2022 11:42:55 -0500</lastBuildDate><atom:link href="https://akuzni2.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gitlab Reusable Pipeline</title>
+      <link>https://akuzni2.github.io/posts/devops/gitlab-reusable-pipeline/post/</link>
+      <pubDate>Tue, 10 May 2022 11:42:55 -0500</pubDate>
+      
+      <guid>https://akuzni2.github.io/posts/devops/gitlab-reusable-pipeline/post/</guid>
+      <description>creating a reusable pipeline can be very beneficial to reduce duplicate code and also to standardize across other pipelines in the same project or across other projects. For
+let&amp;rsquo;s start by defining the reusable pipeline
+Create a new pipeline  pipeline.yml
+ variables: VAR1: &amp;#34;&amp;#34; VAR2: &amp;#34;&amp;#34; VAR3: &amp;#34;&amp;#34; stages: - stage1 - stage2 - stage3 job_1: stage: stage1 image: name: some-image variables: SOME_VARIABLE_1: &amp;#34;$VAR1&amp;#34; script: - echo &amp;#39;Do something with $SOME_VARIABLE_1 like validate/lint &amp;#39; job_2: stage: stage2 image: name: some-image variables: SOME_VARIABLE_2: &amp;#34;$VAR2&amp;#34; script: - echo &amp;#39;Do something with $SOME_VARIABLE_2 like build/test&amp;#39; job_3: stage: stage3 image: name: some-image variables: SOME_VARIABLE_3: &amp;#34;$VAR3&amp;#34; script: - echo &amp;#39;Do something with $SOME_VARIABLE_3 like deploy to specfic environment based on the input variable&amp;#39; Use The pipeline  .</description>
+    </item>
+    
     <item>
       <title>Benchmarking Code Review SLAs</title>
       <link>https://akuzni2.github.io/posts/general/code-review-benchmark/post/</link>
