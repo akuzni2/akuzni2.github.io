@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>frontend on Codersteez</title>
+    <link>https://akuzni2.github.io/tags/frontend/</link>
+    <description>Recent content in frontend on Codersteez</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 14 Mar 2023 06:31:18 -0600</lastBuildDate><atom:link href="https://akuzni2.github.io/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Techstack2023</title>
+      <link>https://akuzni2.github.io/posts/frontend/tech/techstack2023/</link>
+      <pubDate>Tue, 14 Mar 2023 06:31:18 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/posts/frontend/tech/techstack2023/</guid>
+      <description>After examining many job openings and frontend development trends here are some short and brief notes on what I think some good skills to have for 2023 will be for frontend development
+ Creating a design system or component library Web3 frontend stack web3.js, ethers.js TypeScript + React Next.js GraphQL/REST/gRPC Experience with static page generation / server side rendering Golang or Nodejs backend experience for fullstack  </description>
+    </item>
+    
+  </channel>
+</rss>

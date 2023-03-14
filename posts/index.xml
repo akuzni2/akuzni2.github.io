@@ -5,7 +5,17 @@
     <link>https://akuzni2.github.io/posts/</link>
     <description>Recent content in Posts on Codersteez</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 10 May 2022 11:42:55 -0500</lastBuildDate><atom:link href="https://akuzni2.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Mar 2023 06:31:18 -0600</lastBuildDate><atom:link href="https://akuzni2.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Techstack2023</title>
+      <link>https://akuzni2.github.io/posts/frontend/tech/techstack2023/</link>
+      <pubDate>Tue, 14 Mar 2023 06:31:18 -0600</pubDate>
+      
+      <guid>https://akuzni2.github.io/posts/frontend/tech/techstack2023/</guid>
+      <description>After examining many job openings and frontend development trends here are some short and brief notes on what I think some good skills to have for 2023 will be for frontend development
+ Creating a design system or component library Web3 frontend stack web3.js, ethers.js TypeScript + React Next.js GraphQL/REST/gRPC Experience with static page generation / server side rendering Golang or Nodejs backend experience for fullstack  </description>
+    </item>
+    
     <item>
       <title>Gitlab Reusable Pipeline</title>
       <link>https://akuzni2.github.io/posts/devops/gitlab-reusable-pipeline/post/</link>
