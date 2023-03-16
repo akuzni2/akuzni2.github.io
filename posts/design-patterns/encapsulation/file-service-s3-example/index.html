@@ -5,9 +5,9 @@
 <meta name=robots content="index, follow">
 <title>Abstracting Away AWS S3 using Object-Oriented Design | Codersteez</title>
 <meta name=keywords content>
-<meta name=description content="By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many data engineering applications I&rsquo;ve worked on we&rsquo;ve read, processed, stored data in S3 in some way.
-A quick example is using a &ldquo;Service&rdquo; layer to wrap a repository
-public class FileService { private final S3BucketRepository s3BucketRepository; public FileService(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public List<S3Object> listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository.">
+<meta name=description content="I love thinking of abstraction. By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many of my data engineering applications I&rsquo;ve worked on we&rsquo;ve read, processed, stored data in S3 in some way.
+Typically I see lazy attempts at design like the below - where we don&rsquo;t hide away S3 at all.
+public class S3Service { private final S3BucketRepository s3BucketRepository; public S3Service(S3BucketRepository s3BucketRepository) { this.">
 <meta name=author content="Alex">
 <link rel=canonical href=https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
@@ -24,20 +24,20 @@ public class FileService { private final S3BucketRepository s3BucketRepository; 
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript><meta property="og:title" content="Abstracting Away AWS S3 using Object-Oriented Design">
-<meta property="og:description" content="By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many data engineering applications I&rsquo;ve worked on we&rsquo;ve read, processed, stored data in S3 in some way.
-A quick example is using a &ldquo;Service&rdquo; layer to wrap a repository
-public class FileService { private final S3BucketRepository s3BucketRepository; public FileService(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public List<S3Object> listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository.">
+<meta property="og:description" content="I love thinking of abstraction. By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many of my data engineering applications I&rsquo;ve worked on we&rsquo;ve read, processed, stored data in S3 in some way.
+Typically I see lazy attempts at design like the below - where we don&rsquo;t hide away S3 at all.
+public class S3Service { private final S3BucketRepository s3BucketRepository; public S3Service(S3BucketRepository s3BucketRepository) { this.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2023-03-15T19:02:22-06:00">
 <meta property="article:modified_time" content="2023-03-15T19:02:22-06:00"><meta property="og:site_name" content="Codersteez">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Abstracting Away AWS S3 using Object-Oriented Design">
-<meta name=twitter:description content="By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many data engineering applications I&rsquo;ve worked on we&rsquo;ve read, processed, stored data in S3 in some way.
-A quick example is using a &ldquo;Service&rdquo; layer to wrap a repository
-public class FileService { private final S3BucketRepository s3BucketRepository; public FileService(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public List<S3Object> listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository.">
+<meta name=twitter:description content="I love thinking of abstraction. By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many of my data engineering applications I&rsquo;ve worked on we&rsquo;ve read, processed, stored data in S3 in some way.
+Typically I see lazy attempts at design like the below - where we don&rsquo;t hide away S3 at all.
+public class S3Service { private final S3BucketRepository s3BucketRepository; public S3Service(S3BucketRepository s3BucketRepository) { this.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://akuzni2.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Abstracting Away AWS S3 using Object-Oriented Design","item":"https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Abstracting Away AWS S3 using Object-Oriented Design","name":"Abstracting Away AWS S3 using Object-Oriented Design","description":"By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many data engineering applications I\u0026rsquo;ve worked on we\u0026rsquo;ve read, processed, stored data in S3 in some way.\nA quick example is using a \u0026ldquo;Service\u0026rdquo; layer to wrap a repository\npublic class FileService { private final S3BucketRepository s3BucketRepository; public FileService(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public List\u0026lt;S3Object\u0026gt; listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository.","keywords":[],"articleBody":"By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many data engineering applications I’ve worked on we’ve read, processed, stored data in S3 in some way.\nA quick example is using a “Service” layer to wrap a repository\npublic class FileService { private final S3BucketRepository s3BucketRepository; public FileService(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public ListS3Object listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository.getBucketByName(bucketName); return bucket.listObjects(prefix); but this isn’t good practice either - because now our File service knows we are using S3! Maybe in a local environment we want to use a local file system - or maybe we want to use OCI, GCP, Dropbox, Google Drive, or store the raw binary in Redis/DynamoDB behind a cache for superduper fast retrieval. So we must abstract away the details of our storage layer as an interface.\nDefine interfaces Now we don’t care what stores our files.\npublic interface FileRepository { ListFile listFiles(String folder); File getFile(String fileName); void deleteFile(String fileName); } Then that might raise the question how do we abstract away the S3 object? Anything we store in S3 can be considered an “object” but in most applications I’ve worked on we retrieve them as “files”.\nA File object might look like\npublic class File { private final String name; private final long size; private final Date lastModified; public File(String name, long size, Date lastModified) { this.name = name; this.size = size; this.lastModified = lastModified; } } If we’re really worried now about tight coupling we could abstract away this as an interface as well and expose some key potential methods instead\npublic interface File { String getName(); long getSize(); Date getlastModified(); boolean exists(); void delete(); } public class S3File implements File { private final String name; private final long size; private final Date lastModified; public File(String name, long size, Date lastModified) { this.name = name; this.size = size; this.lastModified = lastModified; } // implement some methods below } If you’re aware you might notice one thing - in practice you have two things that create your object in AWS S3\n Bucket Name - ex: s3://my-bucket Path - ex: some/path/to/file.json  which identifies your full path: s3://my-bucket/some/path/to/file.json\nI have two options I think that works\n Add a baseDirectory field to the File class which we can hide the bucket information in and utilize it in our repository class. Make the bucket something specific to the repository implementation in question.  I’ll address option 2 in a further example.\nUsing our new interfaces Now our Service layer can be used like such\npublic class FileService { public class FileService { private final FileRepository fileRepository; public FileService(FileRepository fileRepository) { this.fileRepository = fileRepository; } public ListFile listFiles(String folder) { return fileRepository.listFiles(folder); } } Cool - so we have defined the interfaces - lets implement the remaining Repository\nRepository Implementation Heres an example of option 2 where we make the bucket a parameter for S3FileRepository\npublic class S3FileRepository implements FileRepository { private final AmazonS3 s3Client; private final String bucketName; public S3FileRepository(AmazonS3 s3Client, String bucketName) { this.s3Client = s3Client; this.bucketName = bucketName; } public ListFile listFiles(String folder) { ListObjectsV2Result result = s3Client.listObjectsV2(bucketName, folder); return result.getObjectSummaries().stream() .map(summary - new File(summary.getKey(), summary.getSize(), summary.getLastModified())) .collect(Collectors.toList()); } // implement other methods } Improvements Some other #TODO’s I’d like to explore that would help solidify this design so that we use it over the raw S3Client\n How might this design change if # of files is large and we need to iterate over ALL? Use a pointer of sorts? How might we do interesting things unique to S3 - like generating and sharing a presigned URL? How to further abstract this to handle S3 versioning?  ","wordCount":"618","inLanguage":"en","datePublished":"2023-03-15T19:02:22-06:00","dateModified":"2023-03-15T19:02:22-06:00","author":{"@type":"Person","name":"Alex"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/"},"publisher":{"@type":"Organization","name":"Codersteez","logo":{"@type":"ImageObject","url":"https://akuzni2.github.io/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Abstracting Away AWS S3 using Object-Oriented Design","name":"Abstracting Away AWS S3 using Object-Oriented Design","description":"I love thinking of abstraction. By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many of my data engineering applications I\u0026rsquo;ve worked on we\u0026rsquo;ve read, processed, stored data in S3 in some way.\nTypically I see lazy attempts at design like the below - where we don\u0026rsquo;t hide away S3 at all.\npublic class S3Service { private final S3BucketRepository s3BucketRepository; public S3Service(S3BucketRepository s3BucketRepository) { this.","keywords":[],"articleBody":"I love thinking of abstraction. By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many of my data engineering applications I’ve worked on we’ve read, processed, stored data in S3 in some way.\nTypically I see lazy attempts at design like the below - where we don’t hide away S3 at all.\npublic class S3Service { private final S3BucketRepository s3BucketRepository; public S3Service(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public ListS3Object listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository.getBucketByName(bucketName); return bucket.listObjects(prefix); } } I mean come on! Our client of S3Service now knows about S3 and our Service class knows we are using S3! Maybe in a local environment we want to use a local file system - or maybe we want to use OCI, GCP, Dropbox, Google Drive, or store the raw binary in Redis/DynamoDB behind a cache for superduper fast retrieval. So we must abstract away the details of our storage layer as an interface.\nDefine interfaces Depending where you start - you might start with abstraction at the service/business layer or data layer. I’ve like to start at the data layer since it tends to expose the most details in the wrong places and want to keep it as contained as possible. Especially since there limitations with many data stores designing this layer right is critical.\nSo how do we abstract away the S3 object? Anything we store in S3 can be considered an “object” but in most applications I’ve worked on we retrieve them as “files”.\nA File object might look like\npublic class File { private final String name; private final long size; private final Date lastModified; public File(String name, long size, Date lastModified) { this.name = name; this.size = size; this.lastModified = lastModified; } } Data Interface (optional) If we’re really worried now about tight coupling we could abstract away this as an interface as well and expose some key potential methods instead\npublic interface File { String getName(); long getSize(); Date getlastModified(); boolean exists(); void delete(); } public class S3File implements File { private final String name; private final long size; private final Date lastModified; public File(String name, long size, Date lastModified) { this.name = name; this.size = size; this.lastModified = lastModified; } // implement some methods below } If you’re aware you might notice one thing - in practice you have two things that create your object in AWS S3\n Bucket Name - ex: s3://my-bucket Path - ex: some/path/to/file.json  which identifies your full path: s3://my-bucket/some/path/to/file.json\nI have two options I think that works\n Add a baseDirectory field to the File class which we can hide the bucket information in and utilize it in our repository class. Make the bucket something specific to the repository implementation in question.  I’ll address option 2 in a further example.\nRepository Interface Next we need something to retrieve the data. Bam! Now we don’t care what stores our files.\npublic interface FileRepository { ListFile listFiles(String folder); File getFile(String fileName); void deleteFile(String fileName); } Using our new interfaces Now our Service layer can be used like such\npublic class FileService { public class FileService { private final FileRepository fileRepository; public FileService(FileRepository fileRepository) { this.fileRepository = fileRepository; } public ListFile listFiles(String folder) { return fileRepository.listFiles(folder); } } Cool - so we have defined the interfaces - lets implement the remaining Repository\nRepository Implementation Heres an example of option 2 where we make the bucket a parameter for S3FileRepository\npublic class S3FileRepository implements FileRepository { private final AmazonS3 s3Client; private final String bucketName; public S3FileRepository(AmazonS3 s3Client, String bucketName) { this.s3Client = s3Client; this.bucketName = bucketName; } public ListFile listFiles(String folder) { ListObjectsV2Result result = s3Client.listObjectsV2(bucketName, folder); return result.getObjectSummaries().stream() .map(summary - new File(summary.getKey(), summary.getSize(), summary.getLastModified())) .collect(Collectors.toList()); } // implement other methods } Handling lots of files Most of the time you’ve got LOTS of files right? Maybe you need to iterate over a large subste to do something. We can use an Iterator pattern to do this. By abstracting away the details of the S3 client and bucket/prefix, we can easily iterate over S3 files using a generic iterator that can be used by any client code that needs to iterate over S3 files.\nPerhaps the repository should be responsible for creating the iterator It might be better to shift the responsibility of providing the iterator to a separate class like a service or factory class. This could be done to further separate concerns and ensure that each class has a single responsibility.\npublic interface S3FileIterator extends IteratorFile { // Empty interface for defining common behavior of iterators over S3 files } public class S3FileIteratorImpl implements S3FileIterator { private final AmazonS3 s3Client; private final String bucketName; private final String prefix; private final ListObjectsV2Request request; private ListS3ObjectSummary objectSummaries; private int current; public S3FileIteratorImpl(AmazonS3 s3Client, String bucketName, String prefix) { this.s3Client = s3Client; this.bucketName = bucketName; this.prefix = prefix; this.request = new ListObjectsV2Request() .withBucketName(bucketName) .withPrefix(prefix); this.current = 0; } @Override public boolean hasNext() { if (objectSummaries == null || current = objectSummaries.size()) { objectSummaries = getNextObjectSummaries(); current = 0; } return !objectSummaries.isEmpty(); } @Override public File next() { if (!hasNext()) { throw new NoSuchElementException(); } S3ObjectSummary objectSummary = objectSummaries.get(current); current++; S3Object s3Object = s3Client.getObject(bucketName, objectSummary.getKey()); return new File(s3Object.getKey(), s3Object.getObjectContent()); } private ListS3ObjectSummary getNextObjectSummaries() { ListObjectsV2Result result = s3Client.listObjectsV2(request); return result.getObjectSummaries(); } } In the above example we need to be very careful if we use this in any multithreaded/concurrent application. The creator of iterator should create 1 per thread and the repository should not maintain any state of this.\nFurther Improvements Some other TODO’s I’d like to explore that would help solidify this design so that we use it over the raw S3Client\n How might we do interesting things unique to S3 - like generating and sharing a presigned URL? How to further abstract this to handle S3 versioning?  ","wordCount":"980","inLanguage":"en","datePublished":"2023-03-15T19:02:22-06:00","dateModified":"2023-03-15T19:02:22-06:00","author":{"@type":"Person","name":"Alex"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/"},"publisher":{"@type":"Organization","name":"Codersteez","logo":{"@type":"ImageObject","url":"https://akuzni2.github.io/%3Clink%20/%20abs%20url%3E"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -71,7 +71,7 @@ public class FileService { private final S3BucketRepository s3BucketRepository; 
 <h1 class=post-title>
 Abstracting Away AWS S3 using Object-Oriented Design
 </h1>
-<div class=post-meta><span title="2023-03-15 19:02:22 -0600 MDT">March 15, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Alex&nbsp;|&nbsp;<a href=https://github.com/akuzni2/akuzni2.github.io/issues/new rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+<div class=post-meta><span title="2023-03-15 19:02:22 -0600 MDT">March 15, 2023</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Alex&nbsp;|&nbsp;<a href=https://github.com/akuzni2/akuzni2.github.io/issues/new rel="noopener noreferrer" target=_blank>Suggest Changes</a>
 </div>
 </header> <div class=toc>
 <details>
@@ -80,13 +80,22 @@ Abstracting Away AWS S3 using Object-Oriented Design
 </summary>
 <div class=inner><ul>
 <li>
-<a href=#define-interfaces aria-label="Define interfaces">Define interfaces</a></li>
+<a href=#define-interfaces aria-label="Define interfaces">Define interfaces</a><ul>
+<ul>
+<li>
+<a href=#data-interface-optional aria-label="Data Interface (optional)">Data Interface (optional)</a></li>
+<li>
+<a href=#repository-interface aria-label="Repository Interface">Repository Interface</a></li></ul>
+</ul>
+</li>
 <li>
 <a href=#using-our-new-interfaces aria-label="Using our new interfaces">Using our new interfaces</a></li>
 <li>
 <a href=#repository-implementation aria-label="Repository Implementation">Repository Implementation</a><ul>
 <li>
-<a href=#improvements aria-label=Improvements>Improvements</a>
+<a href=#handling-lots-of-files aria-label="Handling lots of files">Handling lots of files</a></li>
+<li>
+<a href=#further-improvements aria-label="Further Improvements">Further Improvements</a>
 </li>
 </ul>
 </li>
@@ -94,30 +103,29 @@ Abstracting Away AWS S3 using Object-Oriented Design
 </div>
 </details>
 </div>
-<div class=post-content><p>By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other.
-In many data engineering applications I&rsquo;ve worked on we&rsquo;ve read, processed, stored data in S3 in some way.</p>
-<p>A quick example is using a &ldquo;Service&rdquo; layer to wrap a repository</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileService</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> S3BucketRepository s3BucketRepository<span style=color:#f92672>;</span>
-    
-    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>FileService</span><span style=color:#f92672>(</span>S3BucketRepository s3BucketRepository<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>s3BucketRepository</span> <span style=color:#f92672>=</span> s3BucketRepository<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
+<div class=post-content><p>I love thinking of abstraction. By separating the concerns of data access and business logic, we are able to make changes to one without
+affecting the other. In many of my data engineering applications I&rsquo;ve worked on we&rsquo;ve read, processed, stored data in S3 in some way.</p>
+<p>Typically I see lazy attempts at design like the below - where we don&rsquo;t hide away S3 at all.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>S3Service</span> <span style=color:#f92672>{</span>
+  <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> S3BucketRepository s3BucketRepository<span style=color:#f92672>;</span>
 
-    <span style=color:#66d9ef>public</span> List<span style=color:#f92672>&lt;</span>S3Object<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>listS3Objects</span><span style=color:#f92672>(</span>String bucketName<span style=color:#f92672>,</span> String prefix<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        S3Bucket bucket <span style=color:#f92672>=</span> s3BucketRepository<span style=color:#f92672>.</span><span style=color:#a6e22e>getBucketByName</span><span style=color:#f92672>(</span>bucketName<span style=color:#f92672>);</span>
-        <span style=color:#66d9ef>return</span> bucket<span style=color:#f92672>.</span><span style=color:#a6e22e>listObjects</span><span style=color:#f92672>(</span>prefix<span style=color:#f92672>);</span>
-</code></pre></div><p>but this isn&rsquo;t good practice either - because now our File service knows we are using S3! Maybe in a local environment
+  <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>S3Service</span><span style=color:#f92672>(</span>S3BucketRepository s3BucketRepository<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>s3BucketRepository</span> <span style=color:#f92672>=</span> s3BucketRepository<span style=color:#f92672>;</span>
+  <span style=color:#f92672>}</span>
+
+  <span style=color:#66d9ef>public</span> List<span style=color:#f92672>&lt;</span>S3Object<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>listS3Objects</span><span style=color:#f92672>(</span>String bucketName<span style=color:#f92672>,</span> String prefix<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    S3Bucket bucket <span style=color:#f92672>=</span> s3BucketRepository<span style=color:#f92672>.</span><span style=color:#a6e22e>getBucketByName</span><span style=color:#f92672>(</span>bucketName<span style=color:#f92672>);</span>
+    <span style=color:#66d9ef>return</span> bucket<span style=color:#f92672>.</span><span style=color:#a6e22e>listObjects</span><span style=color:#f92672>(</span>prefix<span style=color:#f92672>);</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>I mean come on! Our client of S3Service now knows about S3 and our Service class knows we are using S3! Maybe in a local environment
 we want to use a local file system - or maybe we want to use OCI, GCP, Dropbox, Google Drive, or store the raw binary in Redis/DynamoDB behind a cache for
 superduper fast retrieval. So we must abstract away the details of our storage layer as an interface.</p>
 <h2 id=define-interfaces>Define interfaces<a hidden class=anchor aria-hidden=true href=#define-interfaces>#</a></h2>
-<p>Now we don&rsquo;t care what stores our files.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>FileRepository</span> <span style=color:#f92672>{</span>
-    List<span style=color:#f92672>&lt;</span>File<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>listFiles</span><span style=color:#f92672>(</span>String folder<span style=color:#f92672>);</span>
-    File <span style=color:#a6e22e>getFile</span><span style=color:#f92672>(</span>String fileName<span style=color:#f92672>);</span>
-    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>deleteFile</span><span style=color:#f92672>(</span>String fileName<span style=color:#f92672>);</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><p>Then that might raise the question how do we abstract away the S3 object? Anything we store in
+<p>Depending where you start - you might start with abstraction at the service/business layer or data layer. I&rsquo;ve like to start
+at the data layer since it tends to expose the most details in the wrong places and want to keep it as contained as possible.
+Especially since there limitations with many data stores designing this layer right is critical.</p>
+<p>So how do we abstract away the S3 object? Anything we store in
 S3 can be considered an &ldquo;object&rdquo; but in most applications I&rsquo;ve worked on we retrieve them as &ldquo;files&rdquo;.</p>
 <p>A <code>File</code> object might look like</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>File</span> <span style=color:#f92672>{</span>
@@ -131,7 +139,9 @@ S3 can be considered an &ldquo;object&rdquo; but in most applications I&rsquo;ve
         <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>lastModified</span> <span style=color:#f92672>=</span> lastModified<span style=color:#f92672>;</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><p>If we&rsquo;re really worried now about tight coupling we could abstract away this as an interface as well and expose some key potential methods instead</p>
+</code></pre></div><h4 id=data-interface-optional>Data Interface (optional)<a hidden class=anchor aria-hidden=true href=#data-interface-optional>#</a></h4>
+<p>If we&rsquo;re really worried now about tight coupling we could abstract away this as an interface as well and expose some key potential
+methods instead</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>File</span> <span style=color:#f92672>{</span>
   String <span style=color:#a6e22e>getName</span><span style=color:#f92672>();</span>
   <span style=color:#66d9ef>long</span> <span style=color:#a6e22e>getSize</span><span style=color:#f92672>();</span>
@@ -164,7 +174,14 @@ S3 can be considered an &ldquo;object&rdquo; but in most applications I&rsquo;ve
 <li>Make the <code>bucket</code> something specific to the repository implementation in question.</li>
 </ol>
 <p>I&rsquo;ll address option 2 in a further example.</p>
-<h2 id=using-our-new-interfaces>Using our new interfaces<a hidden class=anchor aria-hidden=true href=#using-our-new-interfaces>#</a></h2>
+<h4 id=repository-interface>Repository Interface<a hidden class=anchor aria-hidden=true href=#repository-interface>#</a></h4>
+<p>Next we need something to retrieve the data. Bam! Now we don&rsquo;t care what stores our files.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>FileRepository</span> <span style=color:#f92672>{</span>
+    List<span style=color:#f92672>&lt;</span>File<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>listFiles</span><span style=color:#f92672>(</span>String folder<span style=color:#f92672>);</span>
+    File <span style=color:#a6e22e>getFile</span><span style=color:#f92672>(</span>String fileName<span style=color:#f92672>);</span>
+    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>deleteFile</span><span style=color:#f92672>(</span>String fileName<span style=color:#f92672>);</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><h2 id=using-our-new-interfaces>Using our new interfaces<a hidden class=anchor aria-hidden=true href=#using-our-new-interfaces>#</a></h2>
 <p>Now our <code>Service</code> layer can be used like such</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileService</span> <span style=color:#f92672>{</span>
   <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileService</span> <span style=color:#f92672>{</span>
@@ -200,10 +217,65 @@ S3 can be considered an &ldquo;object&rdquo; but in most applications I&rsquo;ve
 </span><span style=color:#75715e></span><span style=color:#f92672>}</span>
 
 
-</code></pre></div><h3 id=improvements>Improvements<a hidden class=anchor aria-hidden=true href=#improvements>#</a></h3>
-<p>Some other #TODO&rsquo;s I&rsquo;d like to explore that would help solidify this design so that we use it over the raw S3Client</p>
+</code></pre></div><h3 id=handling-lots-of-files>Handling lots of files<a hidden class=anchor aria-hidden=true href=#handling-lots-of-files>#</a></h3>
+<p>Most of the time you&rsquo;ve got LOTS of files right? Maybe you need to iterate over a large subste to do something. We can use an <code>Iterator</code> pattern
+to do this. By abstracting away the details of the S3 client and bucket/prefix, we can easily iterate over S3 files using a generic iterator that
+can be used by any client code that needs to iterate over S3 files.</p>
+<p>Perhaps the repository should be responsible for creating the iterator It might be better to shift the responsibility of
+providing the iterator to a separate class like a service or factory class.
+This could be done to further separate concerns and ensure that each class has a single responsibility.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Java data-lang=Java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>S3FileIterator</span> <span style=color:#66d9ef>extends</span> Iterator<span style=color:#f92672>&lt;</span>File<span style=color:#f92672>&gt;</span> <span style=color:#f92672>{</span>
+    <span style=color:#75715e>// Empty interface for defining common behavior of iterators over S3 files
+</span><span style=color:#75715e></span><span style=color:#f92672>}</span>
+
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>S3FileIteratorImpl</span> <span style=color:#66d9ef>implements</span> S3FileIterator <span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> AmazonS3 s3Client<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> String bucketName<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> String prefix<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> ListObjectsV2Request request<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>S3ObjectSummary<span style=color:#f92672>&gt;</span> objectSummaries<span style=color:#f92672>;</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> current<span style=color:#f92672>;</span>
+
+    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>S3FileIteratorImpl</span><span style=color:#f92672>(</span>AmazonS3 s3Client<span style=color:#f92672>,</span> String bucketName<span style=color:#f92672>,</span> String prefix<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>s3Client</span> <span style=color:#f92672>=</span> s3Client<span style=color:#f92672>;</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>bucketName</span> <span style=color:#f92672>=</span> bucketName<span style=color:#f92672>;</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>prefix</span> <span style=color:#f92672>=</span> prefix<span style=color:#f92672>;</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>request</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ListObjectsV2Request<span style=color:#f92672>()</span>
+                <span style=color:#f92672>.</span><span style=color:#a6e22e>withBucketName</span><span style=color:#f92672>(</span>bucketName<span style=color:#f92672>)</span>
+                <span style=color:#f92672>.</span><span style=color:#a6e22e>withPrefix</span><span style=color:#f92672>(</span>prefix<span style=color:#f92672>);</span>
+        <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>current</span> <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#a6e22e>@Override</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>hasNext</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>objectSummaries <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span> <span style=color:#f92672>||</span> current <span style=color:#f92672>&gt;=</span> objectSummaries<span style=color:#f92672>.</span><span style=color:#a6e22e>size</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+            objectSummaries <span style=color:#f92672>=</span> getNextObjectSummaries<span style=color:#f92672>();</span>
+            current <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span>
+        <span style=color:#f92672>}</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#f92672>!</span>objectSummaries<span style=color:#f92672>.</span><span style=color:#a6e22e>isEmpty</span><span style=color:#f92672>();</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#a6e22e>@Override</span>
+    <span style=color:#66d9ef>public</span> File <span style=color:#a6e22e>next</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(!</span>hasNext<span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+            <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> NoSuchElementException<span style=color:#f92672>();</span>
+        <span style=color:#f92672>}</span>
+        S3ObjectSummary objectSummary <span style=color:#f92672>=</span> objectSummaries<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>current<span style=color:#f92672>);</span>
+        current<span style=color:#f92672>++;</span>
+        S3Object s3Object <span style=color:#f92672>=</span> s3Client<span style=color:#f92672>.</span><span style=color:#a6e22e>getObject</span><span style=color:#f92672>(</span>bucketName<span style=color:#f92672>,</span> objectSummary<span style=color:#f92672>.</span><span style=color:#a6e22e>getKey</span><span style=color:#f92672>());</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> File<span style=color:#f92672>(</span>s3Object<span style=color:#f92672>.</span><span style=color:#a6e22e>getKey</span><span style=color:#f92672>(),</span> s3Object<span style=color:#f92672>.</span><span style=color:#a6e22e>getObjectContent</span><span style=color:#f92672>());</span>
+    <span style=color:#f92672>}</span>
+
+    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>S3ObjectSummary<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>getNextObjectSummaries</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+        ListObjectsV2Result result <span style=color:#f92672>=</span> s3Client<span style=color:#f92672>.</span><span style=color:#a6e22e>listObjectsV2</span><span style=color:#f92672>(</span>request<span style=color:#f92672>);</span>
+        <span style=color:#66d9ef>return</span> result<span style=color:#f92672>.</span><span style=color:#a6e22e>getObjectSummaries</span><span style=color:#f92672>();</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>In the above example we need to be very careful if we use this in any multithreaded/concurrent application.
+The creator of iterator should create 1 per thread and the repository should not maintain any state of this.</p>
+<h3 id=further-improvements>Further Improvements<a hidden class=anchor aria-hidden=true href=#further-improvements>#</a></h3>
+<p>Some other TODO&rsquo;s I&rsquo;d like to explore that would help solidify this design so that we use it over the raw S3Client</p>
 <ol>
-<li>How might this design change if # of files is large and we need to iterate over ALL? Use a pointer of sorts?</li>
 <li>How might we do interesting things unique to S3 - like generating and sharing a presigned URL?</li>
 <li>How to further abstract this to handle S3 versioning?</li>
 </ol>

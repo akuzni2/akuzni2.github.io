@@ -12,9 +12,9 @@
       <pubDate>Wed, 15 Mar 2023 19:02:22 -0600</pubDate>
       
       <guid>https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/</guid>
-      <description>By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many data engineering applications I&amp;rsquo;ve worked on we&amp;rsquo;ve read, processed, stored data in S3 in some way.
-A quick example is using a &amp;ldquo;Service&amp;rdquo; layer to wrap a repository
-public class FileService { private final S3BucketRepository s3BucketRepository; public FileService(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public List&amp;lt;S3Object&amp;gt; listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository.</description>
+      <description>I love thinking of abstraction. By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many of my data engineering applications I&amp;rsquo;ve worked on we&amp;rsquo;ve read, processed, stored data in S3 in some way.
+Typically I see lazy attempts at design like the below - where we don&amp;rsquo;t hide away S3 at all.
+public class S3Service { private final S3BucketRepository s3BucketRepository; public S3Service(S3BucketRepository s3BucketRepository) { this.</description>
     </item>
     
     <item>

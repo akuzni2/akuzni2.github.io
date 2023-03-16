@@ -76,11 +76,11 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many data engineering applications I’ve worked on we’ve read, processed, stored data in S3 in some way.
-A quick example is using a “Service” layer to wrap a repository
-public class FileService { private final S3BucketRepository s3BucketRepository; public FileService(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public List&lt;S3Object> listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository....</p>
+<p>I love thinking of abstraction. By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many of my data engineering applications I’ve worked on we’ve read, processed, stored data in S3 in some way.
+Typically I see lazy attempts at design like the below - where we don’t hide away S3 at all.
+public class S3Service { private final S3BucketRepository s3BucketRepository; public S3Service(S3BucketRepository s3BucketRepository) { this....</p>
 </section>
-<footer class=entry-footer><span title="2023-03-15 19:02:22 -0600 MDT">March 15, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Alex</footer>
+<footer class=entry-footer><span title="2023-03-15 19:02:22 -0600 MDT">March 15, 2023</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Alex</footer>
 <a class=entry-link aria-label="post link to Abstracting Away AWS S3 using Object-Oriented Design" href=https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/></a>
 </article>
 <article class=post-entry>
