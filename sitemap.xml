@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/</loc>
+    <lastmod>2023-03-15T19:02:22-06:00</lastmod>
+  </url><url>
     <loc>https://akuzni2.github.io/</loc>
-    <lastmod>2023-03-14T06:31:18-06:00</lastmod>
+    <lastmod>2023-03-15T19:02:22-06:00</lastmod>
+  </url><url>
+    <loc>https://akuzni2.github.io/posts/</loc>
+    <lastmod>2023-03-15T19:02:22-06:00</lastmod>
   </url><url>
     <loc>https://akuzni2.github.io/tags/frontend/</loc>
     <lastmod>2023-03-14T06:31:18-06:00</lastmod>
   </url><url>
     <loc>https://akuzni2.github.io/posts/frontend/tech/techstack2023/</loc>
-    <lastmod>2023-03-14T06:31:18-06:00</lastmod>
-  </url><url>
-    <loc>https://akuzni2.github.io/posts/</loc>
     <lastmod>2023-03-14T06:31:18-06:00</lastmod>
   </url><url>
     <loc>https://akuzni2.github.io/tags/</loc>

@@ -72,6 +72,19 @@
 </article>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Abstracting Away AWS S3 using Object-Oriented Design
+</h2>
+</header>
+<section class=entry-content>
+<p>By separating the concerns of data access and business logic, we are able to make changes to one without affecting the other. In many data engineering applications I’ve worked on we’ve read, processed, stored data in S3 in some way.
+A quick example is using a “Service” layer to wrap a repository
+public class FileService { private final S3BucketRepository s3BucketRepository; public FileService(S3BucketRepository s3BucketRepository) { this.s3BucketRepository = s3BucketRepository; } public List&lt;S3Object> listS3Objects(String bucketName, String prefix) { S3Bucket bucket = s3BucketRepository....</p>
+</section>
+<footer class=entry-footer><span title="2023-03-15 19:02:22 -0600 MDT">March 15, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Alex</footer>
+<a class=entry-link aria-label="post link to Abstracting Away AWS S3 using Object-Oriented Design" href=https://akuzni2.github.io/posts/design-patterns/encapsulation/file-service-s3-example/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Frontend Tech Stack 2023
 </h2>
 </header>
@@ -121,18 +134,6 @@ Some of the instructions for this article came from following instructions from 
 </section>
 <footer class=entry-footer><span title="2021-05-21 12:24:27 -0600 MDT">May 21, 2021</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Alex</footer>
 <a class=entry-link aria-label="post link to Beating Java AWS Lambda Cold Starts With GraalVM Native Image and Quarkus" href=https://akuzni2.github.io/posts/java/java-graalvm-aws-lambda-coldstart/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>A Tour of Go Exercise Solutions
-</h2>
-</header>
-<section class=entry-content>
-<p>As I am going through the Tour of Go I found there are some exercise that require some problem solving. I’d like to share my solutions that I’ve come up with for these. I’ll be updating these as I complete the tour of go!
-Exercise: Loops and Functions package main import ( "fmt" "math" ) func Sqrt(x float64) float64 { z := 1.0 prevZ := z diff := 0.00000001 for { z -= (z*z - x) / (2*z) if diff > math....</p>
-</section>
-<footer class=entry-footer><span title="2021-04-25 11:30:03 +0000 +0000">April 25, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Alex</footer>
-<a class=entry-link aria-label="post link to A Tour of Go Exercise Solutions" href=https://akuzni2.github.io/posts/tour-of-go/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
